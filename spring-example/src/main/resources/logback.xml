@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+
+	<!-- ConsoleAppender 控制台输出日志 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- 设置日志输出格式 %d表示日期，%-5level表示级别从左显示5个字符宽度，%thread表示线程名，%logger日志输出所在的类的全限定类名，%msg：日志消息，%n是换行符-->
+			<pattern>
+				%blue(%file) l=%line %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5level]  %logger{36} %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 异步日志输出 -->
+	<logger name="e" level="debug" additivity="false">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<!-- 日志输出级别 -->
+	<root level="debug">
+		<!-- ref值与上面的appender标签的name相对应 -->
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
