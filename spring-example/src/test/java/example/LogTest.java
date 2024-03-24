@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.example.MyBean;
 
+@Slf4j
 public class LogTest {
 
 	@Test
@@ -15,5 +16,6 @@ public class LogTest {
 		ac.refresh();
 		MyBean bean = ac.getBean(MyBean.class);
 		int id = bean.getId();
+		log.info(String.valueOf(id));
 	}
 }
