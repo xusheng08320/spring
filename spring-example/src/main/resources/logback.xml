@@ -12,14 +12,12 @@
 		</encoder>
 	</appender>
 
-	<!-- 异步日志输出 -->
 	<logger name="e" level="debug" additivity="false">
 		<appender-ref ref="STDOUT"/>
 	</logger>
 
 	<!-- 日志输出级别 -->
 	<root level="debug">
-		<!-- ref值与上面的appender标签的name相对应 -->
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>
