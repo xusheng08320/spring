@@ -123,7 +123,9 @@ class ComponentScanAnnotationParser {
 			basePackages.add(ClassUtils.getPackageName(declaringClass));
 		}
 
+
 		scanner.addExcludeFilter(new AbstractTypeHierarchyTraversingFilter(false, false) {
+			// 排除当前类
 			@Override
 			protected boolean matchClassName(String className) {
 				return declaringClass.equals(className);
