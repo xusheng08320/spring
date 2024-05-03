@@ -124,6 +124,8 @@ class ConfigurationClassEnhancer {
 		enhancer.setUseFactory(false);
 		enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
 		enhancer.setStrategy(new BeanFactoryAwareGeneratorStrategy(classLoader));
+		// setCallback方法会为所有方法进行代理，setCallbackFilter只有当符合条件的方法进行代理
+		// spring中主要过滤@Bean方法和setBeanFactory方法
 		enhancer.setCallbackFilter(CALLBACK_FILTER);
 		enhancer.setCallbackTypes(CALLBACK_FILTER.getCallbackTypes());
 		return enhancer;
@@ -358,6 +360,7 @@ class ConfigurationClassEnhancer {
 						}
 					}
 				}
+				// 从容器中获取bean
 				Object beanInstance = (useArgs ? beanFactory.getBean(beanName, beanMethodArgs) :
 						beanFactory.getBean(beanName));
 				if (!ClassUtils.isAssignableValue(beanMethod.getReturnType(), beanInstance)) {
