@@ -26,6 +26,9 @@ dependencies {
     implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.5'
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.hamcrest', name: 'hamcrest-core', version: '2.2'
+    // JSR330
+    implementation group: 'jakarta.inject', name: 'jakarta.inject-api', version: '1.0'
+
 }
 
 test {

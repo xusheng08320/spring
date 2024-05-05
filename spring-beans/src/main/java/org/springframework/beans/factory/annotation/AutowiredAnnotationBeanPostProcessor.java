@@ -168,6 +168,7 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 		}
 		catch (ClassNotFoundException ex) {
 			// JSR-330 API not available - simply skip.
+			logger.warn("AutowiredAnnotationBeanPostProcessor javax.inject.Inject not found");
 		}
 	}
 
